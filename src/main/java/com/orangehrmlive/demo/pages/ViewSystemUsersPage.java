@@ -3,6 +3,7 @@ package com.orangehrmlive.demo.pages;
 import com.aventstack.extentreports.Status;
 import com.orangehrmlive.demo.customlisteners.CustomListeners;
 import com.orangehrmlive.demo.utility.Utility;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
@@ -39,6 +40,7 @@ actions
         Reporter.log("Add User Text not verified" + verifAddUsr);
         CustomListeners.test.log(Status.PASS, "Add User Text not verified" + verifAddUsr);
     }
+
     @CacheLookup
     @FindBy(xpath = "//div[@class='oxd-input-group oxd-input-field-bottom-space']//div//input[@class='oxd-input oxd-input--active']")
     WebElement entSysUserName;
@@ -78,6 +80,7 @@ actions
         CustomListeners.test.log(Status.PASS, "Click on search button" + searchBtn);
         Reporter.log("Click on search button" + searchBtn.toString());
     }
+
     @CacheLookup
     @FindBy(xpath = "//i[@class='oxd-icon bi-check oxd-checkbox-input-icon']")
     WebElement verifResultList;
@@ -99,8 +102,9 @@ actions
         CustomListeners.test.log(Status.PASS, "Click on checkbox button" + checkBoxTick);
         Reporter.log("Click on checkbox button" + checkBoxTick.toString());
     }
+
     @CacheLookup
-    @FindBy(xpath = "//i[@class='oxd-icon bi-trash']")
+    @FindBy(xpath = "//body/div[@id='app']/div[1]/div[2]/div[2]/div[1]/div[2]/div[3]/div[1]/div[2]/div[2]/div[1]/div[6]/div[1]/button[1]/i[1]")
     WebElement deletebtn;
 
     public void clickOnDeleteButton() {
@@ -115,12 +119,15 @@ actions
         acceptAlert();
 
     }
+
     @CacheLookup
-    @FindBy(linkText = "Successfully Deleted")
+    @FindBy(xpath = "(//div[@class='oxd-toast oxd-toast--success oxd-toast-container--toast'])[1]")
     WebElement verifdeletuser;
 
     public void verifyUserSuccessfullyDelete() {
-        String exp = "Successfully Deleted";
+        String exp = "Success\n" +
+                "Successfully Deleted\n" +
+                "×";
         String act = verifdeletuser.getText();
         Assert.assertEquals(act, exp, "not verify");
         CustomListeners.test.log(Status.PASS, "not verified delete user" + verifdeletuser);
@@ -128,13 +135,61 @@ actions
     }
 
     @CacheLookup
-    @FindBy(xpath="//body/div[@id='app']/div[3]/div[1]/div[1]/div[1]/div[3]/button[2]")
+    @FindBy(xpath = "//i[@class='oxd-icon bi-trash oxd-button-icon']")
     WebElement clickon;
 
     public void clickOnDeletePopUp() {
         clickOnElement(clickon);
-        CustomListeners.test.log(Status.PASS, "click on delete popup" +clickon);
+        CustomListeners.test.log(Status.PASS, "click on delete popup" + clickon);
         Reporter.log("click on delete pop up" + clickon.toString());
     }
 
+
+    public void enterSystemUserName1(String username) {
+        sendTextToElement(entSysUserName, "");
+        CustomListeners.test.log(Status.PASS, "enter systme user name" + entSysUserName);
+        Reporter.log("enter system user name" + entSysUserName.toString());
+    }
+
+    public void selectSystemUserRole1(String userroll) {
+        clickOnElement(selctusrRole);
+        CustomListeners.test.log(Status.PASS, "select systmer user" + selctusrRole);
+        Reporter.log("select system user" + selctusrRole.toString());
+    }
+
+    public void selectSystemStatus1(String status) {
+        clickOnElement(selctStatus);
+        CustomListeners.test.log(Status.PASS, "select systmer Status" + selctStatus);
+        Reporter.log("select system Status" + selctStatus.toString());
+    }
+
+    @CacheLookup
+    @FindBy(xpath = "//body/div[@id='app']/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/form[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/input[1]")
+    WebElement employeeName1;
+
+    public void selectEmployeeName(String employeeName) {
+        sendTextToElement(employeeName1, "employeeName");
+        Reporter.log("select employyeename" + employeeName1.toString());
+        CustomListeners.test.log(Status.PASS, "select employee" + employeeName1);
+    }
+
+    @CacheLookup
+    @FindBy(xpath = "//body/div[@id='app']/div[1]/div[2]/div[2]/div[1]/div[2]/div[2]/div[1]/span[1]")
+    WebElement record;
+
+    public void verifyRecordFind() {
+        String expected = "(1) Record Found";
+        String actual = record.getText();
+        Assert.assertEquals(actual, expected);
+        Reporter.log("verify text " + record.toString());
+        CustomListeners.test.log(Status.PASS, "verify text" + record);
+    }
+
+
+    public void resetClick() {
+        clickOnElement(By.xpath("//button[normalize-space()='Reset']"));
+    }
+
+
 }
+

@@ -3,12 +3,13 @@ package resources.testdata;
 import org.testng.annotations.DataProvider;
 
 public class TestData {
-    @DataProvider(name = "credentials")
+    @DataProvider(name = "DataSet")
     public Object[][] getData(){
         Object[][] data = new Object[][]{
-                {"test1@gmail.com","test123"},
-                {"test2@gmail.com","test234"},
-                {"test3@gmail.com","test456"}
+                {"Admin", "Admin", "Paul Collings", "Enable"},
+                {"Cassidy.Hope", "ESS", "Cassidy Hope", "Enable"},
+                {"Nina.Patel", "ESS", "Nina Patel", "Enable"},
+                {"Odis.Adalwin", "Admin", "Odis Adalwin", "Enable"}
         };
         return data;
     }

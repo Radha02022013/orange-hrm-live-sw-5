@@ -98,4 +98,11 @@ Store username, password, Login Button and LOGIN Panel text Locators
 
     }
 
+    public void verifyRequired() {
+        String expected = "Required";
+        String actual = driver.findElement(By.xpath("//body/div[@id='app']/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/form[1]/div[2]/div[1]/span[1]")).getText();
+        Assert.assertEquals(actual, expected);
+
+    }
+
 }

@@ -52,11 +52,11 @@ Password, Confirm Password,
     @FindBy(xpath = "//body/div[@id='app']/div[1]/div[2]/div[2]/div[1]/div[1]/form[1]/div[3]/button[1]")
     WebElement cancel;
 
-   public void clickOnAddUser(){
-       clickOnElement(addUser);
-     CustomListeners.test.log(Status.PASS, "Click on add " + addUser);
-      Reporter.log("Click on addUser " + addUser.toString());
-   }
+    public void clickOnAddUser() {
+        clickOnElement(addUser);
+        CustomListeners.test.log(Status.PASS, "Click on add " + addUser);
+        Reporter.log("Click on addUser " + addUser.toString());
+    }
 
     public void clickOnUserRole() {
         clickOnElement(dropDown);

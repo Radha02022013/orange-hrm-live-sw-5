@@ -5,6 +5,8 @@ import com.orangehrmlive.demo.pages.HomePage;
 import com.orangehrmlive.demo.pages.LoginPage;
 import com.orangehrmlive.demo.testbase.BaseTest;
 import org.openqa.selenium.By;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Listeners;
@@ -13,6 +15,7 @@ import org.testng.annotations.Test;
 @Listeners(CustomListeners.class)
 public class LoginTest extends BaseTest {
 
+    private static final Logger log = LoggerFactory.getLogger(LoginTest.class);
     LoginPage loginPage;
     HomePage homePage;
 
@@ -76,10 +79,14 @@ public class LoginTest extends BaseTest {
      *  Enter username <username>
      *  Enter password <password>
      *  Click on Login Button
-     *  Verify Error message <errorMessage>
+     *  Verify Error message Required
      */
     @Test(groups = {"regression"})
     public void verifyErrorMessageWithInvalidCredentials(){
+        loginPage.enterUserName("");
+        loginPage.enterPassword("");
+        loginPage.clickOnLoginButton();
+        loginPage.verifyRequired();
 
     }
 }

@@ -33,32 +33,31 @@ Store OrangeHRM logo, Admin, PIM, Leave,Dashboard, Welcome Text locatores
     WebElement leave;
 
     @CacheLookup
-    @FindBy(xpath ="//body/div[@id='app']/div[1]/div[1]/aside[1]/nav[1]/div[2]/ul[1]/li[8]/a[1]/span[1]" )
+    @FindBy(xpath = "//body/div[@id='app']/div[1]/div[1]/aside[1]/nav[1]/div[2]/ul[1]/li[8]/a[1]/span[1]")
     WebElement dashBoard;
 
 
-
-public void clickOnAdmin(){
+    public void clickOnAdmin() {
         clickOnElement(Admin);
-    CustomListeners.test.log(Status.PASS, "click on Admin " + Admin);
-    Reporter.log("Click on Admin" + Admin.toString());
-}
+        CustomListeners.test.log(Status.PASS, "click on Admin " + Admin);
+        Reporter.log("Click on Admin" + Admin.toString());
+    }
 
-public void clickOnPIM(){
+    public void clickOnPIM() {
         clickOnElement(PIM);
-        CustomListeners.test.log(Status.PASS,"Click on PIM" + PIM);
+        CustomListeners.test.log(Status.PASS, "Click on PIM" + PIM);
         Reporter.log("click on PIM" + PIM.toString());
-}
+    }
 
-public void clickOnLeave(){
+    public void clickOnLeave() {
         clickOnElement(leave);
-        CustomListeners.test.log(Status.PASS,"click on Leave" + leave);
+        CustomListeners.test.log(Status.PASS, "click on Leave" + leave);
         Reporter.log("click on leave " + leave.toString());
-}
+    }
 
-public void clickOnDashBoard(){
+    public void clickOnDashBoard() {
         clickOnElement(dashBoard);
-        CustomListeners.test.log(Status.PASS,"click on dashboard " + dashBoard);
+        CustomListeners.test.log(Status.PASS, "click on dashboard " + dashBoard);
         Reporter.log("click on dashboard" + dashBoard.toString());
-}
+    }
 }

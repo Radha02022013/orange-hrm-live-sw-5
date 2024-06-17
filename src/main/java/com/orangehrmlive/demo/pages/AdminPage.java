@@ -25,21 +25,21 @@ public class AdminPage extends Utility {
     @FindBy(xpath = "//header/div[2]/nav[1]/ul[1]/li[3]/span[1]")
     WebElement organization;
 
-    public void clickOnUserManagement(){
+    public void clickOnUserManagement() {
         clickOnElement(userManagement);
         Reporter.log("click on userManagement " + userManagement.toString());
-        CustomListeners.test.log(Status.PASS,"click on userManagement " + userManagement);
+        CustomListeners.test.log(Status.PASS, "click on userManagement " + userManagement);
     }
 
-    public void clickOnJob(){
+    public void clickOnJob() {
         clickOnElement(job);
         Reporter.log("Click on job " + job.toString());
-        CustomListeners.test.log(Status.PASS,"click on job " + job);
+        CustomListeners.test.log(Status.PASS, "click on job " + job);
     }
 
-    public void clickOnOrganization(){
+    public void clickOnOrganization() {
         clickOnElement(organization);
         Reporter.log("click on organization" + organization.toString());
-        CustomListeners.test.log(Status.PASS,"click on organization " + organization);
+        CustomListeners.test.log(Status.PASS, "click on organization " + organization);
     }
 }

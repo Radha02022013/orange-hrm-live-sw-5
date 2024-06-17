@@ -9,6 +9,7 @@ import com.orangehrmlive.demo.testbase.BaseTest;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
+import resources.testdata.TestData;
 
 @Listeners(CustomListeners.class)
 public class UsersTest extends BaseTest {
@@ -24,7 +25,7 @@ public class UsersTest extends BaseTest {
         loginPage = new LoginPage();
         homePage = new HomePage();
         addUserPage = new AddUserPage();
-      viewSystemUsersPage = new ViewSystemUsersPage();
+        viewSystemUsersPage = new ViewSystemUsersPage();
     }
 
     /**
@@ -62,6 +63,7 @@ public class UsersTest extends BaseTest {
         addUserPage.clickOnSave();
 
     }
+
     /**
      * 2. searchTheUserCreatedAndVerifyIt().
      * Login to Application
@@ -133,20 +135,27 @@ public class UsersTest extends BaseTest {
      * Verify "System Users" Text
      * Enter Username <username>
      * Select User Role <userRole>
-     *  Enter EmployeeName <employeeName>
+     * Enter EmployeeName <employeeName>
      * Select Satatus <status>
      * Click on "Search" Button
      * verify message "(1) Record Found"
      * Verify username <username>
      * Click on Reset Tab
      */
-    @Test(groups = {"regression"})
-    public void searchTheUserAndVerifyTheMessageRecordFound(){
+    @Test(groups = {"regression"}, dataProvider = "DataSet", dataProviderClass = TestData.class)
+    public void searchTheUserAndVerifyTheMessageRecordFound(String username, String userrole, String employeeName, String status) {
         loginPage.enterUserName("Admin");
         loginPage.enterPassword("admin123");
         loginPage.clickOnLoginButton();
         homePage.clickOnAdmin();
         viewSystemUsersPage.verifySystemUserText();
+        viewSystemUsersPage.enterSystemUserName1(username);
+        viewSystemUsersPage.selectSystemUserRole1(userrole);
+        viewSystemUsersPage.selectSystemStatus1(status);
+        viewSystemUsersPage.selectEmployeeName(employeeName);
+        viewSystemUsersPage.searchButtonClick();
+        viewSystemUsersPage.verifyRecordFind();
+        viewSystemUsersPage.resetClick();
     }
 
 }

@@ -18,9 +18,9 @@ public class DashboardPage extends Utility {
     @FindBy(xpath = "//body/div[@id='app']/div[1]/div[1]/aside[1]/nav[1]/div[2]/ul[1]/li[8]/a[1]/span[1]")
     WebElement dashBoard1;
 
-    public void clickOnDashBoard1(){
+    public void clickOnDashBoard1() {
         clickOnElement(dashBoard1);
         Reporter.log("click on dashboard" + dashBoard1.toString());
-        CustomListeners.test.log(Status.PASS,"click on dashboard "+dashBoard1);
+        CustomListeners.test.log(Status.PASS, "click on dashboard " + dashBoard1);
     }
 }
