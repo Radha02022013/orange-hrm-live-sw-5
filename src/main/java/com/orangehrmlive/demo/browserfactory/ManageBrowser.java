@@ -1,6 +1,6 @@
-package com.tutorialsninja.demo.browserfactory;
+package com.orangehrmlive.demo.browserfactory;
 
-import com.tutorialsninja.demo.propertyreader.PropertyReader;
+import com.orangehrmlive.demo.propertyreader.PropertyReader;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;

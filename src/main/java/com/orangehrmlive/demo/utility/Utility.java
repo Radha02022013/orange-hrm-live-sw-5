@@ -1,10 +1,11 @@
-package com.tutorialsninja.demo.utility;
+package com.orangehrmlive.demo.utility;
 
-import com.tutorialsninja.demo.browserfactory.ManageBrowser;
+import com.orangehrmlive.demo.browserfactory.ManageBrowser;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.*;
+import org.testng.Assert;
 
 import java.io.File;
 import java.io.IOException;
@@ -180,6 +181,13 @@ public class Utility extends ManageBrowser {
                 options.click();
             }
         }
+    }
+public String selectLogo(){
+    WebElement logo = driver.findElement(By.xpath("//img[@alt='OrangeHRM']"));
+
+    // Verify that the logo is displayed
+        Assert.assertTrue(logo.isDisplayed(), "Logo is not displayed");
+return selectLogo();
     }
 
 //*************************** Window Handle Methods ***************************************//

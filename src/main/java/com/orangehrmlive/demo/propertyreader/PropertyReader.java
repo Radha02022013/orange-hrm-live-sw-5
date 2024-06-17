@@ -1,4 +1,4 @@
-package com.tutorialsninja.demo.propertyreader;
+package com.orangehrmlive.demo.propertyreader;
 
 import java.io.FileInputStream;
 import java.util.Properties;

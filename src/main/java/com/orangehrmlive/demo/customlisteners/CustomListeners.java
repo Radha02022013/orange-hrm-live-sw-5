@@ -1,4 +1,4 @@
-package com.tutorialsninja.demo.customlisteners;
+package com.orangehrmlive.demo.customlisteners;
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
@@ -9,7 +9,7 @@ import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 
-import static com.tutorialsninja.demo.utility.Utility.takeScreenShot;
+import static com.orangehrmlive.demo.utility.Utility.takeScreenShot;
 
 /**
  * Created by Jay Vaghani
